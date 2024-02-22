@@ -15,11 +15,8 @@
             // Split the URL by the "?" character
             var parts = currentUrl.split('?');
 
-            // Get the query string parameters
-            var queryParams = new URLSearchParams(parts[1]);
-
-            // Get the value of the "url" parameter
-            var redirectUrl = queryParams.get('url');
+            // Get the part after the "?" (the URL to redirect to)
+            var redirectUrl = parts[1];
 
             // Redirect to the specified URL
             window.location.href = redirectUrl;

@@ -14,10 +14,16 @@
         var currentUrl = window.location.href;
 
         // Split the URL by forward slashes ("/")
-        var parts = currentUrl.split('jsbookmarktools.github.io/to/?');
+        var parts = currentUrl.split('jsbookmarktools.github.io/to/');
 
         // Get the last part of the URL (after the last forward slash)
         var lastPart = parts[parts.length - 1];
+
+        // Check if lastPart is not blank
+        if (lastPart.trim() !== 'https://jsbookmarktools.github.io/to/') {
+            // Redirect to the URL specified by lastPart
+            window.location.href = lastPart;
+        }
 
         // Display the last part in the paragraph with id "path"
         document.getElementById('path').textContent = "Last part of the URL: " + lastPart;

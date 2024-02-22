@@ -43,26 +43,30 @@
 			var textarea = document.createElement('textarea');
             // check if the input field is not empty
             if (redirectToLink.trim() !== '') {
-                // show user input link
-                alert(`Copied to clipboard:\n\nhttps:\/\/jsbookmarktools.github.io/to?${redirectToLink}`);
 				textarea.value = 'https://jsbookmarktools.github.io/to?' + redirectToLink;
+				// append the textarea to the body
+				document.body.appendChild(textarea);
+				// select the text inside the textarea
+				textarea.select();
+				// copy the selected text to the clipboard
+				document.execCommand('copy');
+				// remove the textarea from the body
+				document.body.removeChild(textarea);
+				// show user input link
+                alert(`Copied to clipboard:\n\nhttps:\/\/jsbookmarktools.github.io/to?${redirectToLink}`);
             } else {
+				textarea.value = 'https://jsbookmarktools.github.io/to?example.com'
+				// append the textarea to the body
+				document.body.appendChild(textarea);
+				// select the text inside the textarea
+				textarea.select();
+				// copy the selected text to the clipboard
+				document.execCommand('copy');
+				// remove the textarea from the body
+				document.body.removeChild(textarea);
                 // show example link
                 alert('Copied to clipboard:\n\nhttps://jsbookmarktools.github.io/to?example.com');
-				textarea.value = 'https://jsbookmarktools.github.io/to?example.com'
             }
-
-            // append the textarea to the body
-            document.body.appendChild(textarea);
-
-            // select the text inside the textarea
-            textarea.select();
-
-            // copy the selected text to the clipboard
-            document.execCommand('copy');
-
-            // remove the textarea from the body
-            document.body.removeChild(textarea);
         });
     </script>
 </body>

@@ -1,32 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Redirect Test</title>
+    <title>Conditional Redirect</title>
 </head>
 <body>
-    <h1>Redirect to user-defined link</h1>
-
-    <!-- Paragraph to display the extracted path -->
-    <p id="path"></p>
+    <h1>Conditional Redirect</h1>
 
     <script>
         // Get the current website link (URL)
         var currentUrl = window.location.href;
 
-        // Split the URL by forward slashes ("/")
-        var parts = currentUrl.split('jsbookmarktools.github.io/to/?');
+        // Check if the URL matches the specified pattern
+        if (currentUrl.includes('jsbookmarktools.github.io/to/?')) {
+            // Split the URL by the "?" character
+            var parts = currentUrl.split('?');
 
-        // Get the last part of the URL (after the last forward slash)
-        var lastPart = parts[parts.length - 1];
+            // Get the part after the "?" (the URL to redirect to)
+            var redirectUrl = parts[1];
 
-        // Check if lastPart is not blank
-        if (lastPart.trim() !== 'https://jsbookmarktools.github.io/to/?') {
-            // Redirect to the URL specified by lastPart
-            window.location.href = '' + lastPart;
+            // Redirect to the specified URL
+            window.location.href = redirectUrl;
         }
-
-        // Display the last part in the paragraph with id "path"
-        document.getElementById('path').textContent = "Last part of the URL: " + lastPart;
     </script>
 </body>
 </html>

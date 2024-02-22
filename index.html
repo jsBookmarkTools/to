@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirect Test</title>
+</head>
+<body>
+    <h1>Redirect to user-defined link</h1>
+
+    <!-- Paragraph to display the extracted path -->
+    <p id="path"></p>
+
+    <script>
+        // Get the current website link (URL)
+        var currentUrl = window.location.href;
+
+        // Split the URL by forward slashes ("/")
+        var parts = currentUrl.split('jsbookmarktools.github.io/to/');
+
+        // Get the last part of the URL (after the last forward slash)
+        var lastPart = parts[parts.length - 1];
+
+        // Display the last part in the paragraph with id "path"
+        document.getElementById('path').textContent = "Last part of the URL: " + lastPart;
+    </script>
+</body>
+</html>

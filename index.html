@@ -5,20 +5,23 @@
 </head>
 <body>
     <h1>Redirect to user-defined link</h1>
+	<a>You can modify this link to make it redirect to anywhere you want.</br>
+	<a>Just add a question mark to the end of it, and then the URL of where you want to redirect to.</br>
+	<a href="jsbookmarktools.github.io/to?example.com">jsbookmarktools.github.io/to?example.com</a> ← like this.</a>
 
     <script>
-        // Get the current website link (URL)
+        // get the current website link
         var currentUrl = window.location.href;
 
-        // Check if the URL matches the specified pattern
+        // check if it's the default link
         if (currentUrl.includes('jsbookmarktools.github.io/to/?')) {
-            // Split the URL by the "?" character
+            // split the text after the "?"
             var parts = currentUrl.split('?');
 
-            // Get the part after the "?" (the URL to redirect to)
+            // get the part after the "?" so it can redirect
             var redirectUrl = parts[1];
 
-            // Redirect to the specified URL
+            // go to the link
             window.location.href = 'https://' + redirectUrl;
         }
     </script>

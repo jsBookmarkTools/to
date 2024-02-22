@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Conditional Redirect</title>
+    <title>Redirect Test</title>
 </head>
 <body>
-    <h1>Conditional Redirect</h1>
+    <h1>Redirect to user-defined link</h1>
 
     <script>
         // Get the current website link (URL)
@@ -15,8 +15,11 @@
             // Split the URL by the "?" character
             var parts = currentUrl.split('?');
 
-            // Get the part after the "?" (the URL to redirect to)
-            var redirectUrl = parts[1];
+            // Get the query string parameters
+            var queryParams = new URLSearchParams(parts[1]);
+
+            // Get the value of the "url" parameter
+            var redirectUrl = queryParams.get('url');
 
             // Redirect to the specified URL
             window.location.href = redirectUrl;
